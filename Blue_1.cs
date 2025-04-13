@@ -26,7 +26,7 @@ namespace Lab_8
             foreach (string word in text)
             {
                 if (string.IsNullOrWhiteSpace(word) || string.IsNullOrEmpty(word)) continue;
-                if (line.Length==0) line=word;
+                if (line.Length==0) line+=word;
 
                 else if (line.Length + word.Length + 1 <= 50)
                 {
@@ -34,7 +34,7 @@ namespace Lab_8
                 }
                 else
                 {
-                    temp[countl++] = line;
+                    temp[countl++] =line;
                     line = word;
                 }
             }
@@ -51,14 +51,14 @@ namespace Lab_8
         {
             if (_output == null) return null;
             string ans = "";
-            for(int i=0; i < _output.Length; i++)
+            for(int i=0; i < _output.Length-1; i++)
             {
-                ans += $"{_output[i]}\n";
+                ans += $"{_output[i] + " " }\n";
             }
+            ans+= $"{_output[_output.Length-1] }\n";
             if (string.IsNullOrEmpty(ans)) return null;
             ans=ans.Remove(ans.Length - 1, 1);
             return ans;
-        
         }
     }
 }

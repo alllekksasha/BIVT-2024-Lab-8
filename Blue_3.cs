@@ -33,11 +33,14 @@ namespace Lab_8
                 return;
             }
 
-            var text = _input.Split(' ');
+            //var text = _input.Split(' ');
+            var text = _input.Split(new[] { ' ', '.', '!', '?', ',', ':', '\"', ';', '–', '(', ')', '[', ']', '{', '}', '/' }, StringSplitOptions.RemoveEmptyEntries);
+            //var ninput = _input.Replace(" " , "  ");
+            //var text2 = ninput.Split(' ');
             string unique = "";
             foreach (string word in text)
             {
-                
+                if (string.IsNullOrEmpty(word)) continue;
                 char c = char.ToLower(word[0]);
                 if (!unique.Contains(c)&&char.IsLetter(c)) unique += c;
             }
@@ -49,6 +52,7 @@ namespace Lab_8
             }
             foreach (string word in text)
             {
+                if (string.IsNullOrEmpty(word)) continue;
                 char first = char.ToLower(word[0]);
                 for (int i = 0; i < counts.Length; i++)
                 {
@@ -75,7 +79,7 @@ namespace Lab_8
             for (int i = 0; i < counts.Length; i++)
             {
                  //per = counts[i].count / text.Length;
-                res[i] = (counts[i].letter, (double)counts[i].count / text.Length * 100);
+                res[i] = (counts[i].letter,(double)counts[i].count / text.Length * 100);
             }
             _output = res;
 
@@ -85,10 +89,21 @@ namespace Lab_8
         public override string ToString()
         {
             string res = "";
-            foreach(var v in _output)
+            for (int i = 0; i < _output.Length - 1; i++)
             {
-                res += $"{v.Item1} - {v.Item2:F4}\n";
+                res += $"{_output[i].Item1} - {_output[i].Item2:f4} \n";
             }
+            res += $"{_output[_output.Length - 1].Item1} - {_output[_output.Length - 1].Item2:f4}\n";
+            //foreach (var v in _output)
+            //{
+            //    res += $"{v.Item1} - {v.Item2:F4}  \n";
+            //}
+            //return res.TrimEnd('\n');
+            //string res = "";
+            //foreach (var v in _output)
+            //{
+            //    res += $"{v.Item1} - {v.Item2:F4} \n";
+            //}
             return res.TrimEnd('\n');
         }
 

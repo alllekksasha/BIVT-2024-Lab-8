@@ -65,14 +65,20 @@ namespace Lab_8
                     result += separator + word;
                     separator = " ";
                 }
-                else if (word.Length > 0 && !(char.IsLetter(word[word.Length - 1]) ))
+                else if (word.Length > 0 && !(char.IsLetter(word[0])))
+                {
+                    result += " "+word[0] + word[0];
+                    separator = " ";
+                }
+                if (word.ToLower().Contains(_posled.ToLower()) && word.Length > 0 && !(char.IsLetter(word[word.Length - 1])))
                 {
                     result +=  word[word.Length - 1];
                     separator = " ";
                 }
+                
             }
 
-            _output = result;
+            _output = result ;
 
             //int podhod = 0;
             //foreach (var word in text)
@@ -95,7 +101,7 @@ namespace Lab_8
         
         public override string ToString()
         {
-            //if (string.IsNullOrEmpty(_output)) return null;
+            if (string.IsNullOrEmpty(_output)) return null;
             return _output;
         }
     }
