@@ -31,6 +31,7 @@ namespace Lab_8
         {
             if (string.IsNullOrEmpty(_input))
             {
+                _output = null;
                 return;
             }
 
