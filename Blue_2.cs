@@ -30,7 +30,7 @@ namespace Lab_8
             // var text = _input.Split(' ');
             //if (_posled == null || _output == null || _posled == "" || _output == "") return;
 
-            //string[] words = _output.Split(' ');
+            //string[] words = _input.Split(' ');
             //var res = new StringBuilder();
             //foreach (string word in words)
             //{
