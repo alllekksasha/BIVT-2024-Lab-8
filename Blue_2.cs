@@ -15,14 +15,14 @@ namespace Lab_8
         public Blue_2(string input,string posled) : base(input) 
         { 
             _posled = posled;
-            _output = _input;        
+            _output = null;        
         }
 
         public override void Review()
         {
-            if (string.IsNullOrWhiteSpace(_input)  || string.IsNullOrEmpty(_posled)|| string.IsNullOrEmpty(_input))
+            if (  string.IsNullOrEmpty(_posled)|| string.IsNullOrEmpty(_input))
             {
-                _output = null;
+                _output = string.Empty;
                 return;
             }
 
@@ -101,7 +101,7 @@ namespace Lab_8
         
         public override string ToString()
         {
-            if (string.IsNullOrEmpty(_output)) return null;
+            if (string.IsNullOrEmpty(_output)|| _output.Length == 0) return string.Empty;
             return _output;
         }
     }

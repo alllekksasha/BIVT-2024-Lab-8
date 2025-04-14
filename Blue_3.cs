@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -88,12 +89,17 @@ namespace Lab_8
         }
         public override string ToString()
         {
+            if (_output == null) return null;
             string res = "";
-            for (int i = 0; i < _output.Length - 1; i++)
+            for (int i = 0; i < _output.Length ; i++)
             {
-                res += $"{_output[i].Item1} - {_output[i].Item2:f4} \n";
+                res += $"{_output[i].Item1} - {_output[i].Item2:f4}";
+                if (i < _output.Length - 1)
+                {
+                    res+=Environment.NewLine;
+                }
             }
-            res += $"{_output[_output.Length - 1].Item1} - {_output[_output.Length - 1].Item2:f4}\n";
+            //res += $"{_output[_output.Length - 1].Item1} - {_output[_output.Length - 1].Item2:f4}\n";
             //foreach (var v in _output)
             //{
             //    res += $"{v.Item1} - {v.Item2:F4}  \n";
@@ -105,6 +111,7 @@ namespace Lab_8
             //    res += $"{v.Item1} - {v.Item2:F4} \n";
             //}
             return res.TrimEnd('\n');
+           
         }
 
 

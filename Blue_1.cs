@@ -34,7 +34,7 @@ namespace Lab_8
                 }
                 else
                 {
-                    temp[countl++] =line;
+                    temp[countl++] =line+' ';
                     line = word;
                 }
             }
@@ -53,7 +53,7 @@ namespace Lab_8
             string ans = "";
             for(int i=0; i < _output.Length-1; i++)
             {
-                ans += $"{_output[i] + " " }\n";
+                ans += $"{_output[i]  }\n";
             }
             ans+= $"{_output[_output.Length-1] }\n";
             if (string.IsNullOrEmpty(ans)) return null;
