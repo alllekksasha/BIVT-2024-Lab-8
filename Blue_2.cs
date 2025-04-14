@@ -53,7 +53,7 @@ namespace Lab_8
             //    }
             //}
             //_output = res.ToString();
-            string[] text = _output.Split(' ');
+            string[] text = _input.Split(' ');
             string result = "";
             string separator = "";
 
