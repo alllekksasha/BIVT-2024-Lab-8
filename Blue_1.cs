@@ -34,7 +34,7 @@ namespace Lab_8
                 }
                 else
                 {
-                    temp[countl++] =line + ' ';
+                    temp[countl++] =line;
                     line = word;
                 }
             }
@@ -54,11 +54,8 @@ namespace Lab_8
             for(int i=0; i < _output.Length; i++)
             {
                 ans += $"{_output[i]}";
-
-                if (i == _output.Length-1 )
-                {
-                    ans += Environment.NewLine;
-                }
+                ans += Environment.NewLine;
+                
 
             }
             //ans+= $"{_output[_output.Length-1] }\n";

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -76,12 +77,18 @@ namespace Lab_8
                     } 
                 }
             }
-            //double per = 0.0;
+            double length = 0.0;
+            double per = 0.0;
+            foreach (string x in text)
+            {
+                if (char.IsLetter(x[0]) || (x.Length>1 && char.IsLetter(x[1]))) length++;
+            }
             (char, double)[] res = new (char, double)[counts.Length];
             for (int i = 0; i < counts.Length; i++)
             {
-                 //per = counts[i].count / text.Length;
-                res[i] = (counts[i].letter,(double)counts[i].count / text.Length * 100);
+                 per = counts[i].count / length;
+                
+                res[i] = (counts[i].letter,(double)per * 100);
             }
             _output = res;
 
